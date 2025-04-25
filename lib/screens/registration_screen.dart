@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:reg_auth/screens/welcome_screen.dart';
+import 'package:reg_auth/screens/login_screen.dart';
 
-class AuthScreen extends StatefulWidget {
+class RegisterScreen extends StatefulWidget {
   @override
-  _AuthScreenState createState() => _AuthScreenState();
+  _RegisterScreenState createState() => _RegisterScreenState();
 }
 
-class _AuthScreenState extends State<AuthScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   bool _obscurePassword = true;
 
   @override
@@ -19,7 +21,10 @@ class _AuthScreenState extends State<AuthScreen> {
           padding: const EdgeInsets.all(8.0),
           child: IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => WelcomeScreen()),
+              );
             },
             icon: Icon(Icons.chevron_left, color: Color(0xFF743BD1)),
             style: IconButton.styleFrom(
@@ -37,7 +42,7 @@ class _AuthScreenState extends State<AuthScreen> {
             color: Colors.white,
             fontWeight: FontWeight.w600,
             fontSize: 20,
-            fontFamily: 'Roboto', // Добавьте шрифт
+            fontFamily: 'Roboto',
           ),
         ),
       ),
@@ -63,7 +68,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 height: 60,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Тут логика отправки данных
+                    // Логика регистрации
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
@@ -77,10 +82,59 @@ class _AuthScreenState extends State<AuthScreen> {
                       color: Color(0xFF743BD1),
                       fontSize: 18,
                       fontWeight: FontWeight.w700,
-                      fontFamily: 'Roboto', // Добавьте шрифт
+                      fontFamily: 'Roboto',
                     ),
                   ),
                 ),
+              ),
+              SizedBox(height: 24),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    "Уже есть аккаунт? ",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: 'Roboto',
+                      fontSize: 14,
+                    ),
+                  ),
+
+                  // GestureDetector(
+                  //   onTap: () {
+                  //     Navigator.pushNamed(
+                  //       context,
+                  //       '/login',
+                  //     ); // Переход на экран входа
+                  //   },
+                  //   child: const Text(
+                  //     'Войти',
+                  //     style: TextStyle(
+                  //       color: Colors.amber,
+                  //       fontWeight: FontWeight.bold,
+                  //       fontFamily: 'Roboto',
+                  //       fontSize: 14,
+                  //     ),
+                  //   ),
+                  // ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                      );
+                    },
+                    child: const Text(
+                      'Войти',
+                      style: TextStyle(
+                        color: Colors.amber,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Roboto',
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
@@ -104,7 +158,7 @@ class _AuthScreenState extends State<AuthScreen> {
             fontSize: 16,
             fontWeight: FontWeight.w400,
             letterSpacing: 0.5,
-            fontFamily: 'Roboto', // Добавьте шрифт
+            fontFamily: 'Roboto',
           ),
         ),
         SizedBox(height: 6),
@@ -115,7 +169,7 @@ class _AuthScreenState extends State<AuthScreen> {
             hintStyle: TextStyle(
               color: Color.fromRGBO(255, 255, 255, 0.7),
               fontFamily: 'Roboto',
-            ), // Добавьте шрифт
+            ),
             filled: true,
             fillColor: Color(0xFF743BD1),
             contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
@@ -137,7 +191,7 @@ class _AuthScreenState extends State<AuthScreen> {
             fontSize: 16,
             fontWeight: FontWeight.w400,
             letterSpacing: 0.5,
-            fontFamily: 'Roboto', // Добавьте шрифт
+            fontFamily: 'Roboto',
           ),
           cursorColor: Colors.white,
         ),
@@ -156,7 +210,7 @@ class _AuthScreenState extends State<AuthScreen> {
             fontSize: 16,
             fontWeight: FontWeight.w400,
             letterSpacing: 0.5,
-            fontFamily: 'Roboto', // Добавьте шрифт
+            fontFamily: 'Roboto',
           ),
         ),
         SizedBox(height: 6),
@@ -167,7 +221,7 @@ class _AuthScreenState extends State<AuthScreen> {
             hintStyle: TextStyle(
               color: Color.fromRGBO(255, 255, 255, 0.7),
               fontFamily: 'Roboto',
-            ), // Добавьте шрифт
+            ),
             filled: true,
             fillColor: Color(0xFF743BD1),
             contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),
@@ -200,7 +254,7 @@ class _AuthScreenState extends State<AuthScreen> {
             fontSize: 16,
             fontWeight: FontWeight.w400,
             letterSpacing: 0.5,
-            fontFamily: 'Roboto', // Добавьте шрифт
+            fontFamily: 'Roboto',
           ),
           cursorColor: Colors.white,
         ),

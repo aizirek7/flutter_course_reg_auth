@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:reg_auth/screens/registration_screen.dart';
+import 'package:reg_auth/screens/login_screen.dart';
 import 'screens/welcome_screen.dart';
 
 void main() {

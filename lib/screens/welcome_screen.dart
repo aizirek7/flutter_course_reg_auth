@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reg_auth/screens/registration_screen.dart';
+import 'package:reg_auth/screens/login_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
@@ -34,7 +35,7 @@ class WelcomeScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => AuthScreen()),
+                  MaterialPageRoute(builder: (context) => RegisterScreen()),
                 );
               },
               style: OutlinedButton.styleFrom(
@@ -57,10 +58,21 @@ class WelcomeScreen extends StatelessWidget {
 
             SizedBox(height: 10),
 
-            // Простой текст вместо кнопки
-            Text(
-              'У меня уже есть аккаунт',
-              style: TextStyle(color: Colors.white, fontSize: 18),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                );
+              },
+              child: Text(
+                'У меня уже есть аккаунт',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
             ),
 
             SizedBox(height: 63),
